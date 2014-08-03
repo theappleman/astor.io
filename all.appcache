@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# text/cache-manifest
+# ag
+
+
+NETWORK:
+js/bootstrap.min.js
+js/jquery-2.1.1.min.js
+css/bootstrap.min.css
+js/astorio.js

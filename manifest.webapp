@@ -1,0 +1,25 @@
+{
+  "name": "astor.io",
+  "description": "App version of my personal website",
+  "version": "0.10",
+  "manifest_version": 2,
+  "app": {
+    "launch": {
+      "web_url": "/index.html"
+    }
+  },
+  "launch_path": "/index.html",
+  "origin": "app://astor.io/",
+  "permissions": {
+    "systemXHR": {
+      "access": "readwrite"
+    },
+    "storage": {
+      "access": "readwrite"
+    }
+  },
+  "developer": {
+    "name": "Daniel Cordero",
+    "url": "https://applehq.eu/"
+  }
+}
