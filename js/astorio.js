@@ -127,11 +127,15 @@ function display(json) {
 function cacheOrGet(key) {
 	$("content").text("");
 	$("input").attr("placeholder", key);
-	if (localStorage.getItem(key) === null) {
+	localforage.getItem(key, function(value){
+		console.log(value)
+	});
+	//if (localforage.getItem(key) === null) {
 		$.getJSON(key, function (json) {
-			localStorage[key] = JSON.stringify(json);
-			display(json);
+			console.log("getto");
+			localforage.setItem(key, json, display);
 		}).fail(function (ev) {
+			console.log("feoru");
 			var $div = $("<div>"),
 				$button = $("<button>"),
 				$strong = $("<strong>");
@@ -150,10 +154,13 @@ function cacheOrGet(key) {
 			$("content").append($div);
 			$("head title").text("ERROR");
 		});
-	} else {
-		var json = JSON.parse(localStorage.getItem(key));
-		display(json);
-	};
+	/*} else {
+		console.log("cashuto");
+		localforage.getItem(key).then(function(value){
+			console.log(value);
+			display(value);
+		});
+	};*/
 }
 	
 
@@ -166,7 +173,7 @@ function main() {
 	var params = url.split('?');
 	console.log(params[1]);
 	if (params[1] === undefined || params[1].length == 0) {
-		cacheOrGet("http://s.astor.io/"+"astor/home");
+		cacheOrGet("http://astor.io/"+"astor/home");
 	} else {
 		cacheOrGet(params[1]);
 	}
