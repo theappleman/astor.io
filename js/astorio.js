@@ -166,7 +166,7 @@ function main() {
 	var params = url.split('?');
 	console.log(params[1]);
 	if (params[1] === undefined || params[1].length == 0) {
-		cacheOrGet("http://s.astor.io/"+"astor/home");
+		cacheOrGet("http://astor.io/"+"astor/home");
 	} else {
 		cacheOrGet(params[1]);
 	}
